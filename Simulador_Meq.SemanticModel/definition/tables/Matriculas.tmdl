@@ -1,0 +1,26 @@
+table Matriculas
+	lineageTag: 73c7ca59-48af-4fd9-92ac-00c3dce00026
+
+	measure 'Valor Parâmetro_Mat' = SELECTEDVALUE('Matriculas'[Parâmetro_Mat], 0)
+		formatString: 0
+		lineageTag: a3a643c7-8bc8-4e47-8c84-ad0f0c108383
+
+	column Parâmetro_Mat
+		formatString: 0
+		lineageTag: 971a577e-dbf4-4785-a17c-24178b1ba43b
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition Matriculas-de46d425-16f8-483e-b95f-47b16d631a7f = calculated
+		mode: import
+		source = GENERATESERIES(0, 1000, 1)
+
+	annotation PBI_Id = 9378fdfa51a84c02b7794540c3fe5734
+

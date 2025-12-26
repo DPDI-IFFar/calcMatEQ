@@ -1,0 +1,22 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Plan1"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Plan1
+ref table DateTableTemplate_ad62087b-5848-466d-bf5e-70e760899018
+ref table Matriculas
+ref table 'Carga horária FIC'
+ref table 'MEq Grad'
+
+ref cultureInfo pt-BR
+

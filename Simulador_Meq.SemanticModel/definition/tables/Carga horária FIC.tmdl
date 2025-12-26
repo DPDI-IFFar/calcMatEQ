@@ -1,0 +1,26 @@
+table 'Carga horária FIC'
+	lineageTag: fb42af7b-c9b2-4e7f-a210-a754c5c65382
+
+	measure 'Carga horária FIC Valor' = SELECTEDVALUE('Carga horária FIC'[Carga horária FIC], 0)
+		formatString: 0
+		lineageTag: 15ea3d2a-2974-4a35-83b0-fc7b36818786
+
+	column 'Carga horária FIC'
+		formatString: 0
+		lineageTag: 3e870493-9e44-4d03-b60e-d87c77bb6996
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Carga horária FIC-6d4ce874-d29d-4feb-b03e-d7ca75be4331' = calculated
+		mode: import
+		source = GENERATESERIES(0,800,1)
+
+	annotation PBI_Id = 75fbcc38b3cb49ccbced347dcdc90d06
+

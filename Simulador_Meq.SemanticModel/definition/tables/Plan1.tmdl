@@ -1,0 +1,106 @@
+table Plan1
+	lineageTag: 85925c29-00e1-4a98-b14d-e2ff8b53953d
+
+	measure Calculo = ```
+			
+			var tipoCurso = SELECTEDVALUE(Plan1[TIPO DE CURSO])
+			var curso = SELECTEDVALUE(Plan1[CURSO])
+			var fic = 'Matriculas'[Valor Parâmetro_Mat]*1.1*('Carga horária FIC'[Carga horária FIC Valor]/800)
+			var fec = IF(ISBLANK([FEC Valor]),0,[FEC Valor])
+			return IF(
+			    ISBLANK(tipoCurso), "", 
+			    IF(tipoCurso = "QUALIFICAÇÃO PROFISSIONAL",
+			    fic, IF(ISBLANK(curso), "", 'Matriculas'[Valor Parâmetro_Mat]*fec))
+			)
+			```
+		lineageTag: 00a5f56e-8e6e-4e4a-b18d-475d972cbecd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'FEC Valor' = IF( (SELECTEDVALUE(Plan1[CURSO])<>"" && SELECTEDVALUE(Plan1[TIPO DE CURSO])<>""), SUM('Plan1'[FEC]), "")
+		formatString: 0.00
+		lineageTag: bf8672b6-da9d-4428-9663-d238fce87a43
+
+	measure 'FECH Valor' = IF( (SELECTEDVALUE(Plan1[CURSO])<>"" && SELECTEDVALUE(Plan1[TIPO DE CURSO])<>""), IF(SELECTEDVALUE(Plan1[TIPO DE CURSO])="QUALIFICAÇÃO PROFISSIONAL", 'Carga horária FIC'[Carga horária FIC Valor]/800,SUM('Plan1'[FECH])), "")
+		formatString: 0.00
+		lineageTag: 13e19d25-4f33-49d6-b261-1b6b48177f8f
+
+	measure 'Hide Card' = ```
+			
+			   IF(
+			      SELECTEDVALUE(Plan1[TIPO DE CURSO])="QUALIFICAÇÃO PROFISSIONAL",
+			      "RGBA(255, 255, 255, 0)",
+			      "#FFFFFF"
+			   )
+			```
+		lineageTag: 3090f5a8-f431-4476-acf2-0959aaf7d4fd
+
+	column 'TIPO DE CURSO'
+		dataType: string
+		lineageTag: f5450313-e055-4fb7-a58b-4ea0512a0ce4
+		summarizeBy: none
+		sourceColumn: TIPO DE CURSO
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EIXO TECNOLÓGICO'
+		dataType: string
+		lineageTag: 9c6f8272-b546-4335-8688-dfc209adf5c9
+		summarizeBy: none
+		sourceColumn: EIXO TECNOLÓGICO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURSO
+		dataType: string
+		lineageTag: c070fd3a-49c1-4c7a-a8eb-33a4661c8348
+		summarizeBy: none
+		sourceColumn: CURSO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FEC
+		dataType: double
+		lineageTag: e6891619-d2d2-46be-bd83-e25ea2d372e9
+		summarizeBy: sum
+		sourceColumn: FEC
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column FECH
+		dataType: double
+		lineageTag: 5baa0391-a393-4cec-9fb4-e219af4e857b
+		summarizeBy: sum
+		sourceColumn: FECH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MATRÍCULAS
+		dataType: int64
+		formatString: 0
+		lineageTag: 7136ae1b-65d5-4229-b1d2-b4bbb039f3f5
+		summarizeBy: sum
+		sourceColumn: MATRÍCULAS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Plan1-5c531347-a9ff-45ac-94af-27878c64ddfd = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\Jaline\OneDrive - iffarroupilha.edu.br\Documentos\Dashboards PowerBI\Simulador_matriculaEquivalente\dados_FEC_PNP.xlsx"), null, true),
+				    Plan1_Sheet = Fonte{[Item="Plan1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Plan1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"TIPO DE CURSO", type text}, {"EIXO TECNOLÓGICO", type text}, {"CURSO", type text}, {"FEC", type number}, {"FECH", type number}, {"MATRÍCULAS", Int64.Type}}),
+				    #"Linhas Superiores Removidas" = Table.Skip(#"Tipo Alterado",4)
+				in
+				    #"Linhas Superiores Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

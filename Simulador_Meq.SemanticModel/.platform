@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Simulador_Meq"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "95ae0ba4-5cc2-4024-a1bf-e2eb44264610"
+  }
+}

@@ -1,0 +1,27 @@
+table 'MEq Grad'
+	lineageTag: b73ed2e0-4cec-4504-a666-2c317108c12b
+
+	measure 'Valor MEq Grad' = SELECTEDVALUE('MEq Grad'[MEq Grad])
+		lineageTag: f602c6d2-86b4-41b3-9555-f57499e8e893
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'MEq Grad'
+		formatString: 0.00
+		lineageTag: 8d4ea20e-c4d1-4e06-8c88-9d68040d0d9a
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'MEq Grad-1bd4cf59-a989-4a0a-ac4c-6a322bc923e3' = calculated
+		mode: import
+		source = UNION( GENERATESERIES(0,499,0.01), GENERATESERIES(500,999,0.01), GENERATESERIES(1000,3000, 0.01))
+
+	annotation PBI_Id = 0ef0612d179447a6bae1046e82dec38f
+
