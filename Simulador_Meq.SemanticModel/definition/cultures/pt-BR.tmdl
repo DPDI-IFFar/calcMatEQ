@@ -2,8 +2,115 @@ cultureInfo pt-BR
 
 	linguisticMetadata =
 			{
-			  "Version": "1.0.0",
-			  "Language": "en-US"
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "plan1.calculo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Plan1",
+			          "ConceptualProperty": "Calculo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MATRÍCULAS EQUIVALENTES": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "plan1.fech_valor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Plan1",
+			          "ConceptualProperty": "FECH Valor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "FECH": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "plan1.fec_valor": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Plan1",
+			          "ConceptualProperty": "FEC Valor"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "FEC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "matriculas.parâmetro_mat": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Matriculas",
+			          "ConceptualProperty": "Parâmetro_Mat"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "MATRÍCULAS (CPF)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "carga_horária_fic.carga_horária_fic": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Carga horária FIC",
+			          "ConceptualProperty": "Carga horária FIC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Carga horária (APENAS SE CURSO FIC)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
 			}
 		contentType: json
 

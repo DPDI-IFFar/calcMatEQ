@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "c277e331409be72a8e0e",
   "position": {
-    "x": 16.532258064516128,
-    "y": 502.01612903225805,
+    "x": 21,
+    "y": 370,
     "z": 2000,
-    "height": 89.112903225806448,
-    "width": 322.58064516129031,
+    "height": 89,
+    "width": 322,
     "tabOrder": 2000
   },
   "visual": {
@@ -257,5 +257,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7073241b4bce950eedd7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Matriculas"
+              }
+            },
+            "Property": "Parâmetro_Mat"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

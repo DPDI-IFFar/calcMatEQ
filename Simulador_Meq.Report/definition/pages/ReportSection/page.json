@@ -27,7 +27,7 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Android Large - 1 (4).png'"
+                    "Value": "'Android Large - 2.png'"
                   }
                 }
               },
@@ -36,7 +36,7 @@
                   "ResourcePackageItem": {
                     "PackageName": "RegisteredResources",
                     "PackageType": 1,
-                    "ItemName": "Android_Large_-_1_(4)13269497125946694.png"
+                    "ItemName": "Android_Large_-_27842219556890372.png"
                   }
                 }
               },

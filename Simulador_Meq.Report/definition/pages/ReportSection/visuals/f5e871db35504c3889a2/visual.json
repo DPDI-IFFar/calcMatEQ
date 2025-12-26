@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "f5e871db35504c3889a2",
   "position": {
-    "x": 20.161290322580644,
-    "y": 372.17741935483872,
+    "x": 20,
+    "y": 495,
     "z": 4000,
-    "height": 27.822580645161292,
-    "width": 61.693548387096776,
+    "height": 28,
+    "width": 62,
     "tabOrder": 3000
   },
   "visual": {
@@ -140,5 +140,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "040752737b8c07905c22",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Plan1"
+              }
+            },
+            "Property": "FEC Valor"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

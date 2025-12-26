@@ -5,6 +5,18 @@ table 'Carga horária FIC'
 		formatString: 0
 		lineageTag: 15ea3d2a-2974-4a35-83b0-fc7b36818786
 
+	measure 'Mostrar Carga Horária FIC' = ```
+			
+			IF (
+			    SELECTEDVALUE(Plan1[TIPO DE CURSO]) = "QUALIFICAÇÃO PROFISSIONAL",
+			    1,
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ea9bafe6-afa3-4ef1-abbd-22bfb1e37665
+
 	column 'Carga horária FIC'
 		formatString: 0
 		lineageTag: 3e870493-9e44-4d03-b60e-d87c77bb6996

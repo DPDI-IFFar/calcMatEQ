@@ -154,5 +154,51 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7d05d6848a7721a81114",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Plan1"
+              }
+            },
+            "Property": "TIPO DE CURSO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "694a2b42399f494c949a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Plan1"
+              }
+            },
+            "Property": "EIXO TECNOLÓGICO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3d03fb7f3bf1bd375b3a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Plan1"
+              }
+            },
+            "Property": "CURSO"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
